@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>clicker game</title>
+    <style>
+      button {
+        background-color: rgb(45, 45, 115);
+        color: white;
+        padding: 5px;
+        border-style: initial;
+      }
+    </style>
+  </head>
+  <body
+    style="
+      text-align: center;
+      width: 100%;
+      background-color: lightblue;
+      color: rgb(45, 45, 115);
+    "
+  >
+    <h1>super basic clicker game</h1>
+    <div id="playscreen">
+      <button onclick="playGame()">click to play</button>
+    </div>
+    <div id="clickscreen" style="display: none">
+      <h2>main game</h2>
+      <h3 id="clickCount">clicks: 0</h3>
+      <button onclick="clickthis()" id="clickMe" style="width: 50px">
+        Click
+      </button>
+      <div
+        style="
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+          margin-top: 10px;
+        "
+      >
+        <button onclick="openShop()">Shop</button>
+        <button onclick="openStats()">Stats</button>
+      </div>
+    </div>
+    <div id="shop" style="display: none">
+      <h2>Shop</h2>
+      <button onclick="closeShop()">Close Shop</button>
+      <br />
+      <br />
+      <span
+        ><button
+          onclick="clickMult()"
+          id="first"
+          style="width: fit-content; height: 100%; border-radius: 0px"
+        >
+          2x Click Multiplier<br />20 Clicks
+        </button>
+        <button
+          onclick="clickMultx5()"
+          id="second"
+          style="width: fit-content; height: 100%; border-radius: 0px"
+        >
+          5x Click Multiplier<br />100 Clicks
+        </button></span
+      >
+      <br />
+      <br />
+      <span>
+        <button
+          onclick="critChanceUpgrade()"
+          id="third"
+          style="width: fit-content; height: 100%; border-radius: 0px"
+        >
+          Crit Chance Upgrade<br />1 Clicks - 0/10
+        </button>
+      </span>
+    </div>
+    <div id="stats" style="display: none"></div>
+    <script>
+      // variables
+
+      let clicks = 0;
+      let baseClickCount = 1;
+      let clickMultiplier = 1;
+      let critChance = 9;
+
+      // click function
+
+      function clickthis() {
+        let num = Math.floor(Math.random() * critChance + 1);
+        if (num == critChance) {
+          clicks += baseClickCount * clickMultiplier * 1.5;
+          document.getElementById("clickCount").innerHTML =
+            "clicks: " + clicks + "(critical click)";
+        } else {
+          clicks += baseClickCount * clickMultiplier;
+          document.getElementById("clickCount").innerHTML = "clicks: " + clicks;
+        }
+
+        document.getElementById("clickCount").innerHTML = "clicks: " + clicks;
+      }
+
+      function setMoney() {
+        clicks += 1000000;
+        document.getElementById("clickCount").innerHTML = "clicks: " + clicks;
+      }
+
+      // ui functions
+
+      function playGame() {
+        document.getElementById("clickscreen").style.display = "block";
+        document.getElementById("playscreen").style.display = "none";
+      }
+
+      function openShop() {
+        document.getElementById("clickscreen").style.display = "none";
+        document.getElementById("shop").style.display = "block";
+      }
+
+      function openStats() {}
+
+      function closeShop() {
+        document.getElementById("clickCount").innerHTML = "clicks: " + clicks;
+        document.getElementById("clickscreen").style.display = "block";
+        document.getElementById("shop").style.display = "none";
+      }
+
+      function closeStats() {
+        document.getElementById("clickscreen").style.display = "block";
+        document.getElementById("stats").style.display = "none";
+      }
+
+      // shop buttons
+
+      let one = 0;
+      let two = 0;
+
+      function clickMult() {
+        if (clicks < 20) {
+          pass;
+        } else {
+          if (one == 0) {
+            clickMultiplier += 1;
+            one = 1;
+            clicks -= 20;
+            document.getElementById("first").innerHTML =
+              "2x Click Multiplier<br>bought";
+            document.getElementById("clickCount").innerHTML =
+              "clicks: " + clicks;
+          }
+        }
+      }
+
+      function clickMultx5() {
+        if (clicks < 100) {
+          pass;
+        } else {
+          if (two == 0) {
+            clickMultiplier += 3;
+            two = 1;
+            clicks -= 100;
+            document.getElementById("second").innerHTML =
+              "5x Click Multiplier<br />bought";
+            document.getElementById("clickCount").innerHTML =
+              "clicks: " + clicks;
+          }
+        }
+      }
+
+      let critUpgradePrice = 1;
+      let critUpgradeCounter = 0;
+
+      function critChanceUpgrade() {
+        if (clicks < critUpgradePrice) {
+        } else if (critUpgradeCounter == 10) {
+          document.getElementById("third").innerHTML =
+            "Crit Chance Upgrade<br>" + "bought";
+        } else {
+          critUpgradeCounter += 1;
+          critChance -= 1;
+          clicks -= critUpgradePrice;
+          critUpgradePrice *= 2;
+          document.getElementById("third").innerHTML =
+            "Crit Chance Upgrade<br>" +
+            critUpgradePrice +
+            " Clicks - " +
+            critUpgradeCounter +
+            "/10";
+          document.getElementById("clickCount").innerHTML = "clicks: " + clicks;
+        }
+      }
+    </script>
+  </body>
+</html>
