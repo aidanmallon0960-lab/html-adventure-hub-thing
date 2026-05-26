@@ -1,12 +1,12 @@
-header h1{
-    text-align: center;
-    border: 5px solid black;
-    margin: 0;
-    padding: 10px;
-    font-family: cursive; 
-    color: lime;
-    background-color: blue;
-}  
+header h1 {
+  text-align: center;
+  border: 5px solid black;
+  margin: 0;
+  padding: 10px;
+  font-family: cursive;
+  color: lime;
+  background-color: blue;
+}
 nav ul {
   display: flex;
   justify-content: space-around;
@@ -16,80 +16,84 @@ nav ul {
   border: 1px solid black;
 }
 nav ul li {
-    border: 5px solid black;
-    width: 100%;
-    text-align: center;
-    text-decoration: none;
-    background-color: purple;
-
+  border: 5px solid black;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  background-color: purple;
 }
 
 p {
-    color:red;
-    font-family: cursive;
-    background-color: green;
-    text-align: center;
-    border: 5px solid black;
+  color: red;
+  font-family: cursive;
+  background-color: green;
+  text-align: center;
+  border: 5px solid black;
 }
 
 p a {
-    color:red;
-    background-color: aqua;
+  color: red;
+  background-color: aqua;
 }
 
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
 
-main h2, main h3{
-    text-align: center;
-    border: 5px solid black;
-    margin: 0;
-    padding: 10px;
-    font-family: cursive; 
-    color: lime;
-    background-color: blue;
+main h2,
+main h3 {
+  text-align: center;
+  border: 5px solid black;
+  margin: 0;
+  padding: 10px;
+  font-family: cursive;
+  color: lime;
+  background-color: blue;
 }
-main p{
-    margin: 0;
-    font-size: 20px;
+main p {
+  margin: 0;
+  font-size: 20px;
 }
-img{
-    border: 5px solid black;
-    height: 100%;
+img {
+  border: 5px solid black;
+  height: 100%;
 }
-main div{
-    display: flex;
-}
-
-#coolID{
-    background-color: rgb(60, 255, 0);
-    color: rgb(255, 124, 2);
-    text-align: center;
-    font-size: 120px;
-    border: 10px solid rgb(255, 191, 202);
-    margin: 0;
-    padding: 0;
+main div {
+  display: flex;
 }
 
-.listclass{
-    background-color: darkslategrey;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    margin: 0;
-    border: 5px dotted pink;
-    text-align: center;
-    
+#coolID {
+  background-color: rgb(60, 255, 0);
+  color: rgb(255, 124, 2);
+  text-align: center;
+  font-size: 120px;
+  border: 10px solid rgb(255, 191, 202);
+  margin: 0;
+  padding: 0;
 }
 
-.andClass{
-    color: aqua;
-    text-decoration:underline;
-    font-size: 30px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-style: italic;
+.listclass {
+  background-color: darkslategrey;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  margin: 0;
+  border: 5px dotted pink;
+  text-align: center;
 }
 
-form{
-    color:pink;
-    text-align: center;
+.andClass {
+  color: aqua;
+  text-decoration: underline;
+  font-size: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: italic;
+}
+
+form {
+  color: pink;
+  text-align: center;
+}
+.myform {
+  background-color: rgba(0, 0, 0, 0.633);
+  border: 5px pink dotted;
+  border-radius: 20px;
 }
